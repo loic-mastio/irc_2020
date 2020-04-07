@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand">
+        <img src="https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png" alt="Logo" style="width:40px;">
+    </a>
+
+    <ul class="navbar-nav col-12">
+        <li class="nav-item col-8">
+            <a class="nav-link" style="color: white;">
+                USER NAME
+            </a>
+        </li>
+        <li class="nav-item col-2">
+            <a [routerLink]="'/my-account'" style="color: white;  text-decoration: none;">
+                <img src="https://cdn2.iconfinder.com/data/icons/classic-development-circle/512/edit_user-512.png" alt="Logo" style="width:40px; color: grey;">
+                Modify user
+            </a>
+        </li>
+        <li class="nav-item col-2">
+            <a [routerLink]="'/login'" style="color: white;  text-decoration: none;">
+                <img src="https://cdn0.iconfinder.com/data/icons/web/512/e53-512.png" alt="Logo" style="width:40px; color: grey;">
+                Log out
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<main style="margin-top: 5%; margin-left: 5%;">
+
+    <div class="text-center card-body p-0" style="max-width: 100%;">
+        <div class="p-0 m-0 row">
+
+            <div>
+                <nav class="p-0 text-center col light-blue" id="myItems">
+                    <span class="p-2 dropdown-item-text important-color-font"><strong>CHANNELS</strong></span>
+                    <a class="p-2 dropdown-item casual-color-font">channel X</a>
+                    <a class="p-2 dropdown-item casual-color-font">channel X</a>
+                    <a class="p-2 dropdown-item casual-color-font">channel X</a>
+                    <a class="p-2 dropdown-item casual-color-font">channel X</a>
+                    
+                    <div>
+                        <a [routerLink]="'/channel'" style="color: white;  text-decoration: none;">
+                            <img src="https://lh3.googleusercontent.com/proxy/E6caeguFcJrtFtzbNoiWPMFo6vsna1Rj_Tm3JrZwLUJVjohied2Hx4ztF4ZeAH6eQ6FwRJJEF-4g31Dwbop3TsnG54xcf_a4OSVQ2bjuIIvLAW0overYN2i5" alt="add_button" style="width:40px; color: grey;">
+                        </a>
+        
+                        <a [routerLink]="'/my-channel'" style="color: white;  text-decoration: none;">
+                            <img src="https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png" alt="setting_button" style="width:38px; color: grey;">
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="p-0 col-9 m-4">
+
+                <ul id="messages"></ul>
+                <form action="">
+                  <input id="m" autocomplete="off" /><button>Send</button>
+                </form>
+
+            </div>
+
+            <div>
+                <nav class="p-0 text-center col light-blue" id="myItems">
+                    <span class="p-2 dropdown-item-text important-color-font"><strong>MEMBERS</strong></span>
+                    <span class="p-2 dropdown-item-text important-color-font"><strong>~~Online~~</strong></span>
+                    <a class="p-2 dropdown-item casual-color-font">User X</a>
+                    <a class="p-2 dropdown-item casual-color-font">User X</a>
+                    <a class="p-2 dropdown-item casual-color-font">User X</a>
+                    <a class="p-2 dropdown-item casual-color-font">User X</a>
+                    <span class="p-2 dropdown-item-text important-color-font"><strong>~~Offline~~</strong></span>
+                    <a class="p-2 dropdown-item casual-color-font"><s>User X</s></a>
+                    <a class="p-2 dropdown-item casual-color-font"><s>User X</s></a>
+                    <a class="p-2 dropdown-item casual-color-font"><s>User X</s></a>
+                    <a class="p-2 dropdown-item casual-color-font"><s>User X</s></a>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+    $(function () {
+        var socket = io();
+        $('form').submit(function(e){
+        e.preventDefault(); // prevents page reloading
+        socket.emit('chat message', $('#m').val());
+        $('#m').val('');
+        return false;
+        });
+    });
+    </script>
+
+</main>

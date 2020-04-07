@@ -1,0 +1,100 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand">
+        <img src="https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png" alt="Logo" style="width:40px;">
+    </a>
+
+    <ul class="navbar-nav col-12">
+        <li class="nav-item col-8">
+            <a class="nav-link" style="color: white;">
+                USER NAME
+            </a>
+        </li>
+        <li class="nav-item col-2">
+            <a [routerLink]="'/my-account'" style="color: white;  text-decoration: none;">
+                <img src="https://cdn2.iconfinder.com/data/icons/classic-development-circle/512/edit_user-512.png" alt="Logo" style="width:40px; color: grey;">
+                Modify user
+            </a>
+        </li>
+        <li class="nav-item col-2">
+            <a [routerLink]="'/login'" style="color: white;  text-decoration: none;">
+                <img src="https://cdn0.iconfinder.com/data/icons/web/512/e53-512.png" alt="Logo" style="width:40px; color: grey;">
+                Log out
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<main class="login-form" style="margin-top: 9%; margin-bottom: 9%;">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-center"><h3>Create channel</h3></div>
+                    <div class="card-body">
+                        <form action="" method="">
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="name" class="form-control" name="name" required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="number" class="col-md-4 col-form-label text-md-right">Max. members</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="member_number" class="form-control" name="member_number" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 offset-md-4 text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <a [routerLink]="'/channels'" style="color: white; text-decoration: none;">Create</a>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+
+                    <div class="card-header text-center"><h3>Join channel</h3></div>
+
+                    <div class="card-body">
+                        <form action="" method="">
+
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                <div class="col-md-6">
+                                    <div class="btn-group">
+                                        <button class="btn btn-secondary btn-lg dropdown-toggle ml-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          Choose an existing channel
+                                        </button>
+                                        <div class="dropdown-menu col-lg-12">
+                                            <a class="dropdown-item" href="#">Channel X</a>
+                                            <a class="dropdown-item" href="#">Channel X</a>
+                                            <a class="dropdown-item" href="#">Channel X</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 offset-md-4 text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    <a [routerLink]="'/channels'" style="color: white; text-decoration: none;">Join</a>
+                                </button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
