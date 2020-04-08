@@ -13,6 +13,7 @@ import { MyAccountComponent } from './my-account/my-account.component';
 import { MyChannelComponent } from './my-channel/my-channel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ChatService } from './chat.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { FormsModule } from '@angular/forms';
     SocketIoModule.forRoot(config),
     FormsModule
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -51,10 +51,18 @@
 
             <div class="p-0 col-9 m-4">
 
-                <ul id="messages"></ul>
-                <form action="">
-                  <input id="m" autocomplete="off" /><button>Send</button>
-                </form>
+                <ul class="list-group mb-5">
+                    <li class="list-group-item text-left" *ngFor="let message of messages">
+                        {{message}}
+                    </li>
+                </ul>
+                
+                <div class="fixed-bottom mb-3">
+                    <input [(ngModel)]="message" (keyup)="$event.keyCode == 13 && sendMessage()" class="col-lg-7 p-1"/>
+                    <button (click)="sendMessage()" class="p-1">
+                        <img src="https://cdn0.iconfinder.com/data/icons/e-commerce-207/1022/paperplane-512.png" alt="setting_button" style="width:22px; color: grey;">
+                    </button>
+                </div>
 
             </div>
 
@@ -76,19 +84,4 @@
 
         </div>
     </div>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-    $(function () {
-        var socket = io();
-        $('form').submit(function(e){
-        e.preventDefault(); // prevents page reloading
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
-        });
-    });
-    </script>
-
 </main>
