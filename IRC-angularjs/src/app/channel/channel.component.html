@@ -32,24 +32,29 @@
                 <div class="card">
                     <div class="card-header text-center"><h3>Create channel</h3></div>
                     <div class="card-body">
-                        <form action="" method="">
+                        <form (ngSubmit)="onSubmit()" #ChannelFrom="ngForm">
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="name" class="form-control" name="name" required autofocus>
+                                    <input name="name" type="text" id="name" class="form-control" autofocus
+                                  required
+                                  [(ngModel)]="channel.name"
+                                  #name="ngModel">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="number" class="col-md-4 col-form-label text-md-right">Max. members</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="member_number" class="form-control" name="member_number" required>
+                                    <input name="max members" type="number" id="max mebers" class="form-control" autofocus
+                                  required
+                                  [(ngModel)]="channel.nbr_user_max"
+                                  #name="ngModel">
                                 </div>
                             </div>
 
                             <div class="col-md-6 offset-md-4 text-center">
-                                <button type="submit" class="btn btn-primary">
-                                    <a [routerLink]="'/channels'" style="color: white; text-decoration: none;">Create</a>
+                                <button type="submit" class="btn btn-success">
                                 </button>
                             </div>
                         </form>
