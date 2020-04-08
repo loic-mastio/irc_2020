@@ -22,10 +22,14 @@ app.use(function(req, res, next) {
 require("./app/routes/routes.js")(app);
 
 io.on('connection', function (socket){
+    var time = dateFormat();
     console.log('A user is connected');
+    io.sockets.emit('message', time + " - USER joined the room.");
 
     socket.on('disconnect', function (){
+        var time = dateFormat();
         console.log('A user is disconnected');
+        io.sockets.emit('message', time + " - USER left the room.");
     });
 
     socket.on('new-message', function (message){
