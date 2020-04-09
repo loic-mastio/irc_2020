@@ -9,6 +9,7 @@ module.exports = app => {
     app.get("/users/:userId", users.findOne);
     app.put("/users/:userId", users.update);
     app.delete("/users/delete/:userId", users.delete);
+    app.get("/users/connection/:name/:password", users.connectionClient);
     //Messages
     app.get("/message", message.findAll);
     app.post("/message/write", message.create);

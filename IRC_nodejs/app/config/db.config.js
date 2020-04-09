@@ -1,6 +1,6 @@
 module.exports = {
-    HOST: '81.56.104.160',
-    USER: 'irc',
-    PASSWORD: 'irc',
-    DB: 'irc'
+    HOST: 'mysql-lmastio.alwaysdata.net',
+    USER: 'lmastio_root',
+    PASSWORD: 'ecommerceroot',
+    DB: 'lmastio_irc'
 };
