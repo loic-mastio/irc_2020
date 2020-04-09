@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CreateChannel } from '../../entity/createchannels';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-channel',
@@ -10,7 +11,11 @@ import { CreateChannel } from '../../entity/createchannels';
 export class ChannelComponent implements OnInit {
   submitted = false;
   channel = new CreateChannel('NomDuchanel', 0, 1, 1);
-  constructor(private http: HttpClient) { }
+  userService: UserService;
+
+  constructor(private http: HttpClient, userService: UserService) {
+    this.userService = userService;
+  }
 
   onSubmit() {
     this.submitted = true;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User} from "../../entity/user";
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-create-account',
@@ -11,9 +12,10 @@ import { User} from "../../entity/user";
 export class CreateAccountComponent implements OnInit {
   submitted = false;
   user = new User('Loic', 'Patel', 'test2', 'ezrrezr');
+  userService: UserService;
 
-  constructor(private http: HttpClient){
-
+  constructor(private http: HttpClient, userService: UserService){
+    this.userService = userService;
   }
 
   onSubmit() {

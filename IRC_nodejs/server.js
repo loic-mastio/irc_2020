@@ -36,7 +36,7 @@ io.on('connection', function (socket){
         var time = dateFormat();
         //console.log(time);
         console.log(time + ' - New message :' + message);
-        io.sockets.emit('message', time + " - USER : " + message);
+        io.sockets.emit('message', time + message);
     });
 
     //console.log(socket.room);

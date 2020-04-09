@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'http://localhost:8988', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { MyChannelComponent } from './my-channel/my-channel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ChatService } from './chat.service';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { ChatService } from './chat.service';
     SocketIoModule.forRoot(config),
     FormsModule
   ],
-  providers: [ChatService],
+  providers: [ChatService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

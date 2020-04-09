@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../chat.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-channels',
@@ -7,10 +8,12 @@ import { ChatService } from '../chat.service';
   styleUrls: ['./channels.component.css']
 })
 export class ChannelsComponent implements OnInit {
+  userService: UserService;
   message = '';
   messages = [];
 
-  constructor(private chatService: ChatService) { 
+  constructor(private chatService: ChatService, userService: UserService) { 
+    this.userService = userService;
     this.chatService
     .listen('message')
     .subscribe(message => {
@@ -22,8 +25,7 @@ export class ChannelsComponent implements OnInit {
   }
 
   sendMessage() {
-    this.chatService.sendMessage(this.message);
-    //this.messages.push(this.message);
+    this.chatService.sendMessage(" - " + this.userService.name + " : " + this.message);
     this.message = '';
   }
 
