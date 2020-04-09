@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   user = new UserConnected(1, 'LOL', 'LOL', 'ezrrezr', false);
   userService: UserService;
 
-  constructor(private http: HttpClient, private router: Router, userService: UserService) { 
+  constructor(private http: HttpClient, private router: Router, userService: UserService) {
     this.userService = userService;
   }
 
@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (res: UserConnected) => {
           this.setUserName(res.name);
+          this.setID(res.id);
             this.router.navigate(['/channels']);
         }  // display response data
       );
@@ -34,8 +35,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   setUserName(name: string) {
     this.userService.setName(name);
+  }
+  setID(id: number) {
+    this.userService.setID(id);
   }
 }

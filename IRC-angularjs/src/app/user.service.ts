@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   name: string = 'Anonymous';
+  id: number = 0;
 
   constructor() { }
 
@@ -14,5 +15,8 @@ export class UserService {
 
   getName() {
     return this.name;
+  }
+  setID(id: number) {
+    this.id = id;
   }
 }
