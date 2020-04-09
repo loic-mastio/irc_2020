@@ -24,18 +24,18 @@ require("./app/routes/routes.js")(app);
 io.on('connection', function (socket){
     var time = dateFormat();
     console.log('A user is connected');
-    io.sockets.emit('message', time + " - USER joined the room.");
+    io.sockets.emit('message', time + " - A user joined the room.");
 
     socket.on('disconnect', function (){
         var time = dateFormat();
         console.log('A user is disconnected');
-        io.sockets.emit('message', time + " - USER left the room.");
+        io.sockets.emit('message', time + " - A user left the room.");
     });
 
     socket.on('new-message', function (message){
         var time = dateFormat();
         //console.log(time);
-        console.log(time + ' - New message :' + message);
+        console.log(time + ' - New message' + message);
         io.sockets.emit('message', time + message);
     });
 
