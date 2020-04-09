@@ -32,16 +32,16 @@
             <div>
                 <nav class="p-0 text-center col light-blue" id="myItems">
                     <span class="p-2 dropdown-item-text important-color-font"><strong>CHANNELS</strong></span>
-                    <a class="p-2 dropdown-item casual-color-font">channel X</a>
-                    <a class="p-2 dropdown-item casual-color-font">channel X</a>
-                    <a class="p-2 dropdown-item casual-color-font">channel X</a>
-                    <a class="p-2 dropdown-item casual-color-font">channel X</a>
-                    
+                  <ul style="list-style: none;">
+                    <li  *ngFor="let channel of channels[0]">
+                          {{ channel.id }}
+                    </li>
+                  </ul>
                     <div>
                         <a [routerLink]="'/channel'" style="color: white;  text-decoration: none;">
                             <img src="https://cdn3.iconfinder.com/data/icons/most-useful-icons-5/154/Most_Useful_icons_Mono_Blue_Background-36-512.png" alt="add_button" style="width:50px; color: grey;">
                         </a>
-        
+
                         <a [routerLink]="'/my-channel'" style="color: white;  text-decoration: none;">
                             <img src="https://cdn3.iconfinder.com/data/icons/fez/512/FEZ-04-512.png" alt="setting_button" style="width:38px; color: grey;">
                         </a>
@@ -56,7 +56,7 @@
                         {{message}}
                     </li>
                 </ul>
-                
+
                 <div class="fixed-bottom mb-3">
                     <input [(ngModel)]="message" (keyup)="$event.keyCode == 13 && sendMessage()" class="col-lg-7 p-1" required autofocus/>
                     <button (click)="sendMessage()" class="p-1">
