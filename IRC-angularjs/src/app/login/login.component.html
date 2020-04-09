@@ -9,7 +9,7 @@
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="name" class="form-control" name="name" required autofocus>
+                                    <input [(ngModel)]="userService.name" (keyup)="$event.keyCode == 13" type="text" id="name" class="form-control" name="name" required autofocus>
                                 </div>
                             </div>
 
