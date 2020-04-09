@@ -96,14 +96,13 @@ exports.delete = (req, res) => {
 
 exports.connectionClient = (req, res) => {
     Users.connection(req.params.name, req.params.password, (err, data) => {
-        console.log(req);
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
                     message: `Not found User with id ${req.params.name}.`
                 });
             } else {
-                res.status(500).send({
+                res.status(404).send({
                     message: "Error connection User with id " + req.params.name
                 });
             }

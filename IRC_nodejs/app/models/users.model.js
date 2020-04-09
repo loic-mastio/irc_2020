@@ -22,17 +22,10 @@ Users.create = (newUsers, result) => {
 };
 
 Users.connection = (name, password, result) => {
-    sql.query("Select * from user where name = ? and password = ?", name, password, (err, res) => {
-        if (err) {
-            console.log("error: ", err);
-            result(err, null);
-            return;
-        }
-        if (res.length) {
-            console.log("connection user: ", res[0]);
-            result(null, res[0]);
-            return;
-        }
+    sql.query("Select * from user where name = ? and password = ?", [name, password], (err, data) => {
+        if (data.length == 0){
+                result(404, null)
+            } else result(null, data[0]);
     });
 };
 
