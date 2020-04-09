@@ -5,34 +5,40 @@
                 <div class="card">
                     <div class="card-header text-center"><h3>Login</h3></div>
                     <div class="card-body">
-                        <form action="" method="">
+                        <form (ngSubmit)="onSubmit()" #userFrom="ngForm">
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="name" class="form-control" name="name" required autofocus>
+                                    <input name="name" type="text" id="name" class="form-control" autofocus
+                                           required
+                                           [(ngModel)]="user.name"
+                                           #name="ngModel">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password" required>
+                                    <input name="password" type="text" id="password" class="form-control" autofocus
+                                           required
+                                           [(ngModel)]="user.password"
+                                           #name="ngModel">
                                 </div>
                             </div>
 
                             <div class="col-md-6 offset-md-4 text-center">
                                 <button type="submit" class="btn btn-primary">
-                                    <a [routerLink]="'/channels'" style="color: white; text-decoration: none;">Connect</a>
                                 </button>
                             </div>
 
                             <div class="col-md-6 offset-md-4 text-center">
                                 <a>
-                                    Need to sign up ? 
+                                    Need to sign up ?
                                 </a>
                                 <a [routerLink]="'/create-account'" class="btn btn-link">
                                     Click here
                                 </a>
+
                             </div>
                         </form>
                     </div>
