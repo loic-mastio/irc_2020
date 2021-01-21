@@ -15,6 +15,6 @@
     "express-list-endpoints": "^4.0.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   }
 }
